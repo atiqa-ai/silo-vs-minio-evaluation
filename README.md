@@ -1,8 +1,13 @@
-MinIO vs Silo — S3 Storage Evaluation
+## MinIO vs Silo — S3 Storage Evaluation
+
 Epic DEV-904 | Option B profile | Technical comparison and repository guide
-Executive overview
-This repository organizes the MinIO and Silo object-storage comparison across deployment, Amazon S3 API behavior, dataset integrity, distributed architecture, replication, performance, resource utilization, security, and licensing. It includes Docker Compose definitions, Python utilities, automated tests, benchmark profiles, task-specific reports, and consolidated engineering documentation.
-Option B evaluation profile
+
+### Executive overview
+
+This repository organizes the MinIO and Silo object-storage comparison across deployment, Amazon S3 API behavior, dataset integrity, distributed architecture, replication, performance, resource utilization, security, and licensing. It includes Docker Compose definitions, 
+Python utilities, automated tests, benchmark profiles, task-specific reports, and consolidated engineering documentation.
+
+### Option B evaluation profile
 Requirement	Profile
 CPU	8 cores
 Physical memory	16 GiB
