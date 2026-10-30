@@ -1,0 +1,44 @@
+Command: /opt/pyvenv/bin/python scripts/benchmark/phase11.py --mode plan --out /tmp/dev910-no-output
+Exit: 0
+{
+  "profile": {
+    "schema_version": 1,
+    "warmup_seconds": 15,
+    "duration_seconds": 45,
+    "repetitions": 3,
+    "concurrency": 4,
+    "object_sizes": [
+      "4KiB",
+      "1MiB",
+      "16MiB"
+    ],
+    "operations": [
+      "put",
+      "get",
+      "list",
+      "delete",
+      "mixed"
+    ],
+    "fio": {
+      "size": "512M",
+      "runtime_seconds": 45,
+      "iodepth": 4,
+      "numjobs": 1,
+      "bs": "128k",
+      "rw": "randrw"
+    }
+  },
+  "mode": "plan",
+  "estimated_warp_runs": 45,
+  "note": "No benchmarks executed"
+}
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 785, in warm_spreadsheet_runtime
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 718, in _warm_feature_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/spreadsheet_warmup.py", line 509, in _warm_drawing_and_image_flows
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/generated/interface/models.py", line 32861, in bring_to_front
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/remote.py", line 764, in __call__
+  File "/tmp/tmp.QlpUkOUI9D/artifact_tool_v2-2.8.66/artifact_tool/rpc/client.py", line 175, in call
+artifact_tool.rpc.client.RemoteError: Element ordering requires an owning element collection.

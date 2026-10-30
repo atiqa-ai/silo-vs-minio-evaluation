@@ -1,0 +1,12 @@
+Exit code: 0
+test_deterministic_generation_and_hashes (test_dataset_toolkit.DatasetTests.test_deterministic_generation_and_hashes) ... ok
+test_multipart_etag_not_hash (test_dataset_toolkit.DatasetTests.test_multipart_etag_not_hash) ... ok
+test_negative_controls (test_dataset_toolkit.DatasetTests.test_negative_controls) ... ok
+test_no_silent_overwrite (test_dataset_toolkit.DatasetTests.test_no_silent_overwrite) ... ok
+test_different_version_ids_same_logical_revision (test_logical_compare.LogicalTests.test_different_version_ids_same_logical_revision) ... ok
+test_missing_version_fails (test_logical_compare.LogicalTests.test_missing_version_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.012s
+
+OK

@@ -1,0 +1,3 @@
+Command: bash -n scripts/lab/resolve-images.sh scripts/lab/ubuntu-compose-validate.sh scripts/verification/cli_crosscheck.sh
+Exit: 0
+

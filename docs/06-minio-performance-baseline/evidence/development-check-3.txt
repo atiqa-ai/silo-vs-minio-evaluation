@@ -1,0 +1,2 @@
+Command: bash -n scripts/benchmark/capture_resources.sh
+Exit: 0

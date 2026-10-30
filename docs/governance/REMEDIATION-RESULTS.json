@@ -1,0 +1,7 @@
+{
+  "offline_tests": 85,
+  "failed_groups": 0,
+  "docker_available": false,
+  "runtime_acceptance": "EXECUTION REQUIRED",
+  "warp_native_schema": "REVIEW REQUIRED"
+}

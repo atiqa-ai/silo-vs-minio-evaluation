@@ -1,0 +1,7 @@
+{
+  "yaml_parsed": 8,
+  "docker_available": false,
+  "distributed_unit_tests_exit": 0,
+  "replication_unit_tests_exit": 0,
+  "python_compile_exit": 0
+}

@@ -1,0 +1,3 @@
+Command: PYTHONPYCACHEPREFIX=/tmp/dev910-pycache python -m compileall -q scripts/benchmark tests/benchmark
+Exit: 0
+Note: initial attempt hit shared __pycache__ permissions; isolated cache passed.

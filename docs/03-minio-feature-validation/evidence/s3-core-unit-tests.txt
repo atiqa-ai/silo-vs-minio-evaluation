@@ -1,0 +1,13 @@
+Exit code: 0
+test_denial_accepted (test_advanced_s3.NegativeControls.test_denial_accepted) ... ok
+test_test_records_failure (test_advanced_s3.NegativeControls.test_test_records_failure) ... ok
+test_unexpected_error_fails (test_advanced_s3.NegativeControls.test_unexpected_error_fails) ... ok
+test_unexpected_success_fails (test_advanced_s3.NegativeControls.test_unexpected_success_fails) ... ok
+test_assert_equal (test_minio_baseline.BaselineUnitTests.test_assert_equal) ... ok
+test_assert_true (test_minio_baseline.BaselineUnitTests.test_assert_true) ... ok
+test_create_bucket_failure_stops (test_minio_baseline.BaselineUnitTests.test_create_bucket_failure_stops) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.000s
+
+OK

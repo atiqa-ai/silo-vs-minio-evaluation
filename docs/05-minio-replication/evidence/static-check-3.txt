@@ -1,0 +1,2 @@
+bash -n scripts/lab/replication-snapshot.sh scripts/lab/replication-failure.sh scripts/lab/minio-healing-evidence.sh scripts/lab/minio-expansion-check.sh
+exit=0
