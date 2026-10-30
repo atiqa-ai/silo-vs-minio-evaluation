@@ -46,21 +46,35 @@ This repository brings together deployment configurations, Python S3 assessment 
 
 ---
 
-## 2. MinIO vs Silo comparison
-The table presents the project’s supplied **reference comparison dataset** for metric interpretation and percentage calculations. These values describe a comparison scenario; they are presented for comparative interpretation and are separate from collected service measurements.
 
-| Metric | Unit | MinIO | Silo | Comparison |
-## MinIO vs Silo Comparison
-|---|---|---:|---:|---|
-| PUT throughput | MiB/s | 185 | 172 | MinIO +7.56% |
-| GET throughput | MiB/s | 245 | 231 | MinIO +6.06% |
-| Mixed operations | ops/s | 1,250 | 1,170 | MinIO +6.84% |
-| PUT p95 latency | ms | 42 | 48 | MinIO 12.50% lower |
-| GET p95 latency | ms | 28 | 31 | MinIO 9.68% lower |
-| CPU utilization | % | 61 | 65 | MinIO 6.15% lower (relative) |
-| Peak memory | GiB | 7.8 | 8.4 | MinIO 7.14% lower (relative) |
-| Node recovery | s | 75 | 94 | MinIO 20.21% lower (relative) |
+## 2. MinIO vs Silo Comparison
 
+The following table compares MinIO and Silo using the project's Option B reference dataset. It provides a structured overview of throughput, latency, resource utilization, and recovery performance.
+
+| Performance Metric | Unit | MinIO | Silo | Comparison | Preferred |
+|---|---|---:|---:|---|---|
+| PUT Throughput | MiB/s | 185 | 172 | MinIO +7.56% | MinIO |
+| GET Throughput | MiB/s | 245 | 231 | MinIO +6.06% | MinIO |
+| Mixed Operations | ops/s | 1,250 | 1,170 | MinIO +6.84% | MinIO |
+| PUT Latency (p95) | ms | 42 | 48 | MinIO 12.50% lower | MinIO |
+| GET Latency (p95) | ms | 28 | 31 | MinIO 9.68% lower | MinIO |
+| CPU Utilization | % | 61 | 65 | MinIO 6.15% lower | MinIO |
+| Peak Memory Usage | GiB | 7.8 | 8.4 | MinIO 7.14% lower | MinIO |
+| Node Recovery Time | s | 75 | 94 | MinIO 20.21% lower | MinIO |
+
+### Comparison Visualization
+
+![Silo vs MinIO Comparison](assets/images/silo-vs-minio-comparison.png)
+
+*Figure: Silo vs MinIO performance comparison using the Option B reference profile.*
+
+### Technical Summary
+
+Based on the reference comparison dataset, MinIO demonstrates higher PUT and GET throughput, lower request latency, reduced CPU and memory consumption, and faster node recovery compared with Silo.
+
+**Preferred Solution: MinIO** — Based on the supplied comparative performance profile.
+
+*Data source: `submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv`. The figures are reference values for comparison, rather than measured production performance.*
 
 **Dataset:** [Option B reference metrics](<submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv>) · [Performance interpretation](<reports/PERFORMANCE-COMPARISON.md>)
 
