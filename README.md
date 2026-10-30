@@ -51,7 +51,6 @@ The table presents the project’s supplied **reference comparison dataset** for
 
 | Metric | Unit | MinIO | Silo | Comparison |
 ## MinIO vs Silo Comparison
-
 |---|---|---:|---:|---|
 | PUT throughput | MiB/s | 185 | 172 | MinIO +7.56% |
 | GET throughput | MiB/s | 245 | 231 | MinIO +6.06% |
@@ -61,11 +60,6 @@ The table presents the project’s supplied **reference comparison dataset** for
 | CPU utilization | % | 61 | 65 | MinIO 6.15% lower (relative) |
 | Peak memory | GiB | 7.8 | 8.4 | MinIO 7.14% lower (relative) |
 | Node recovery | s | 75 | 94 | MinIO 20.21% lower (relative) |
-
-
-![Silo vs MinIO — Option B Technical Comparison](assets/images/silo-vs-minio-comparison.png)
-
-*Figure: Silo vs MinIO comparison based on the project's Option B reference performance profile.*
 
 
 **Dataset:** [Option B reference metrics](<submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv>) · [Performance interpretation](<reports/PERFORMANCE-COMPARISON.md>)
