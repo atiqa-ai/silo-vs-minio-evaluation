@@ -62,7 +62,6 @@ The following table compares MinIO and Silo using the project's Option B referen
 | Peak Memory Usage | GiB | 7.8 | 8.4 | MinIO 7.14% lower | MinIO |
 | Node Recovery Time | s | 75 | 94 | MinIO 20.21% lower | MinIO |
 
-### Comparison Visualization
 
 
 ### Technical Summary
