@@ -18,6 +18,8 @@ This repository brings together deployment configurations, Python S3 assessment 
 | **Performance** | [Performance comparison](reports/PERFORMANCE-COMPARISON.md) |
 | **Project guidance** | [Repository organization](REPOSITORY-CLEANUP.md) |
 
+<img width="1053" height="351" alt="image" src="https://github.com/user-attachments/assets/f41c8c34-170b-424c-9119-339101dada5e" />
+
 ## Contents
 
 1. [Evaluation environment](#1-evaluation-environment)
@@ -62,6 +64,7 @@ The following table compares MinIO and Silo using the project's Option B referen
 | Peak Memory Usage | GiB | 7.8 | 8.4 | MinIO 7.14% lower | MinIO |
 | Node Recovery Time | s | 75 | 94 | MinIO 20.21% lower | MinIO |
 
+<img width="801" height="516" alt="image" src="https://github.com/user-attachments/assets/dc7b0c49-9f19-464a-b141-ec811d617566" />
 
 
 ### Technical Summary
