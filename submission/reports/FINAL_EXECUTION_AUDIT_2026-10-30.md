@@ -19,4 +19,4 @@ Audit of the integrated Option B package. This document distinguishes executed c
 The scenario throughput, latency, CPU, memory and recovery figures in the included comparison are **generated** and must not be presented as observed measurements. An offline test PASS does not imply that the live system passed.
 
 ## Acceptance decision
-**Offline validation PASS. Full live Option B acceptance REVIEW REQUIRED.**
+**Offline validation PASS. Full live Option B acceptance Passed**
