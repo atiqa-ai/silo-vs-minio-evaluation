@@ -64,9 +64,6 @@ The following table compares MinIO and Silo using the project's Option B referen
 
 ### Comparison Visualization
 
-![Silo vs MinIO Comparison](assets/images/silo-vs-minio-comparison.png)
-
-*Figure: Silo vs MinIO performance comparison using the Option B reference profile.*
 
 ### Technical Summary
 
