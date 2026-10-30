@@ -1,0 +1,16 @@
+id,type,evidence,status,provenance
+EV-001,Offline audit,85 tests PASS,USER-REPORTED,Copilot transcript in conversation
+EV-002,Compose validation,8 configurations PASS,USER-REPORTED,Copilot transcript in conversation
+EV-003,Supporting image provenance,"Silo, Nginx, Prometheus, Grafana pulled and inspected",USER-REPORTED,Copilot transcript in conversation
+EV-004,MinIO release tag,9e49d5e7a648f00e26f2246f4dc28e6b07f8c84a,USER-REPORTED,Copilot transcript in conversation
+EV-905,DEV-905 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-906,DEV-906 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-907,DEV-907 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-908,DEV-908 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-909,DEV-909 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-910,DEV-910 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-911,DEV-911 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-912,DEV-912 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-913,DEV-913 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-914,DEV-914 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README
+EV-915,DEV-915 runtime,Raw evidence not supplied,NO RAW RECORD,Existing project archive and task README

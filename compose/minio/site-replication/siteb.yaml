@@ -1,0 +1,78 @@
+name: dev909-siteb
+services:
+  sitebnode1:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://sitebnode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - sitebnode1_data:/data
+    networks:
+    - dev909-siteb
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+    ports:
+    - 127.0.0.1:${SITEB_S3_PORT:-9800}:9000
+  sitebnode2:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://sitebnode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - sitebnode2_data:/data
+    networks:
+    - dev909-siteb
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  sitebnode3:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://sitebnode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - sitebnode3_data:/data
+    networks:
+    - dev909-siteb
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  sitebnode4:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://sitebnode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - sitebnode4_data:/data
+    networks:
+    - dev909-siteb
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  sitebnode1_data: {}
+  sitebnode2_data: {}
+  sitebnode3_data: {}
+  sitebnode4_data: {}
+networks:
+  dev909-siteb:
+    driver: bridge
+  site-peer-net:
+    external: true

@@ -1,0 +1,42 @@
+name: minio-replication
+services:
+  minio-source:
+    ports:
+    - "127.0.0.1:${REPL_SOURCE_PORT:-9400}:9000"
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio_source_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${REPLICA_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${REPLICA_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  minio-target:
+    ports:
+    - "127.0.0.1:${REPL_TARGET_PORT:-9500}:9000"
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio_target_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${REPLICA_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${REPLICA_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  minio_source_data: {}
+  minio_target_data: {}
+networks:
+  migration-net:
+    external: true

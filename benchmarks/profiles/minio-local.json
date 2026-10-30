@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "warmup_seconds": 15,
+  "duration_seconds": 45,
+  "repetitions": 3,
+  "concurrency": 4,
+  "object_sizes": ["4KiB", "1MiB", "16MiB"],
+  "operations": ["put", "get", "list", "delete", "mixed"],
+  "fio": {"size": "512M", "runtime_seconds": 45, "iodepth": 4, "numjobs": 1, "bs": "128k", "rw": "randrw"}
+}

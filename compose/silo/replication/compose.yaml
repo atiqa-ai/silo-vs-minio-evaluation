@@ -1,0 +1,38 @@
+name: silo-replication
+services:
+  silo-source:
+    image: ${SILO_IMAGE:?Set verified immutable image digest}
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo_source_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${REPLICA_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${REPLICA_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  silo-target:
+    image: ${SILO_IMAGE:?Set verified immutable image digest}
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo_target_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${REPLICA_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${REPLICA_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  silo_source_data: {}
+  silo_target_data: {}
+networks:
+  migration-net:
+    external: true

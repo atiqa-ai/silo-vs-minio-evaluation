@@ -1,0 +1,70 @@
+name: minio-distributed
+services:
+  minio1:
+    image: ${MINIO_IMAGE:?Set verified immutable minio image digest}
+    command: server http://minio{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio1_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  minio2:
+    image: ${MINIO_IMAGE:?Set verified immutable minio image digest}
+    command: server http://minio{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio2_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  minio3:
+    image: ${MINIO_IMAGE:?Set verified immutable minio image digest}
+    command: server http://minio{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio3_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  minio4:
+    image: ${MINIO_IMAGE:?Set verified immutable minio image digest}
+    command: server http://minio{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - minio4_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  minio1_data: {}
+  minio2_data: {}
+  minio3_data: {}
+  minio4_data: {}
+networks:
+  migration-net:
+    external: true

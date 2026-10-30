@@ -1,0 +1,25 @@
+name: silo-single
+services:
+  silo:
+    image: ${SILO_IMAGE:?Set verified immutable silo image digest}
+    command: server /data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo_data:/data
+    networks:
+    - migration-net
+    restart: 'no'
+    mem_limit: ${SINGLE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${SINGLE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+    ports:
+    - 127.0.0.1:${SILO_CONSOLE_PORT:-19002}:9001
+    - 127.0.0.1:${SILO_S3_PORT:-9900}:9000
+volumes:
+  silo_data: {}
+networks:
+  migration-net:
+    external: true

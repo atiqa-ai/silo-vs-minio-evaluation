@@ -1,0 +1,78 @@
+name: dev909-sitea
+services:
+  siteanode1:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://siteanode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - siteanode1_data:/data
+    networks:
+    - dev909-sitea
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+    ports:
+    - 127.0.0.1:${SITEA_S3_PORT:-9700}:9000
+  siteanode2:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://siteanode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - siteanode2_data:/data
+    networks:
+    - dev909-sitea
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  siteanode3:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://siteanode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - siteanode3_data:/data
+    networks:
+    - dev909-sitea
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  siteanode4:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://siteanode{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - siteanode4_data:/data
+    networks:
+    - dev909-sitea
+    - site-peer-net
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  siteanode1_data: {}
+  siteanode2_data: {}
+  siteanode3_data: {}
+  siteanode4_data: {}
+networks:
+  dev909-sitea:
+    driver: bridge
+  site-peer-net:
+    external: true

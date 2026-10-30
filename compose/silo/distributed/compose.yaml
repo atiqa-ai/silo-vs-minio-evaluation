@@ -1,0 +1,70 @@
+name: silo-distributed
+services:
+  silo1:
+    image: ${SILO_IMAGE:?Set verified immutable silo image digest}
+    command: server http://silo{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo1_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  silo2:
+    image: ${SILO_IMAGE:?Set verified immutable silo image digest}
+    command: server http://silo{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo2_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  silo3:
+    image: ${SILO_IMAGE:?Set verified immutable silo image digest}
+    command: server http://silo{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo3_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+  silo4:
+    image: ${SILO_IMAGE:?Set verified immutable silo image digest}
+    command: server http://silo{1...4}/data --console-address :9001
+    environment:
+      MINIO_ROOT_USER: ${SILO_ROOT_USER:?Set local username}
+      MINIO_ROOT_PASSWORD: ${SILO_ROOT_PASSWORD:?Set local password}
+    volumes:
+    - silo4_data:/data
+    networks:
+    - migration-net
+    restart: "no"
+    mem_limit: ${STORAGE_NODE_MEMORY_LIMIT:?Set Option B memory cap}
+    cpus: ${STORAGE_NODE_CPUS:?Set Option B CPU cap}
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  silo1_data: {}
+  silo2_data: {}
+  silo3_data: {}
+  silo4_data: {}
+networks:
+  migration-net:
+    external: true

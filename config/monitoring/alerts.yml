@@ -1,0 +1,15 @@
+groups:
+  - name: storage-lab
+    rules:
+      - alert: StorageTargetDown
+        expr: up{job=~"minio|silo"} == 0
+        for: 2m
+        labels: {severity: warning}
+        annotations:
+          summary: "Storage scrape target unavailable: {{ $labels.instance }}"
+      - alert: PrometheusScrapeFailure
+        expr: up{job="prometheus"} == 0
+        for: 1m
+        labels: {severity: critical}
+        annotations:
+          summary: "Prometheus self scrape failed"

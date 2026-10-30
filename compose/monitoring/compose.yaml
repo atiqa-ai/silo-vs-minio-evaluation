@@ -1,0 +1,29 @@
+name: storage-monitoring
+services:
+  prometheus:
+    image: ${PROMETHEUS_IMAGE:?Set verified immutable prometheus image digest}
+    volumes:
+      - ../../config/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ../../config/monitoring/alerts.yml:/etc/prometheus/alerts.yml:ro
+      - prometheus_data:/prometheus
+    networks: [migration-net]
+    mem_limit: 512m
+    cpus: '0.5'
+  grafana:
+    image: ${GRAFANA_IMAGE:?Set verified immutable grafana image digest}
+    environment:
+      GF_SECURITY_ADMIN_USER: ${GRAFANA_ADMIN_USER:?Set local admin user}
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?Set local admin password}
+    volumes:
+      - ../../config/monitoring/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ../../config/monitoring/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana_data:/var/lib/grafana
+    networks: [migration-net]
+    mem_limit: 512m
+    cpus: '0.5'
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+networks:
+  migration-net:
+    external: true

@@ -1,0 +1,228 @@
+{
+  "schema": "dev915-evidence-input-v1",
+  "notes": "Template only. Do not enter PASS without genuine raw evidence.",
+  "features": {
+    "S3 CRUD": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Object integrity and checksums": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Versioning and delete markers": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Object Lock and retention": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Lifecycle expiration": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "IAM, STS and policies": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "TLS and encryption": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Event notifications": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Distributed failure and healing": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Pool expansion": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Bucket replication": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Batch replication": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Site replication": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "S3 edge cases and SDK parity": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "mc/mcli parity": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Performance and resource use": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Security advisories and vulnerability review": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    },
+    "Licence and maintenance risk": {
+      "minio": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      },
+      "silo": {
+        "status": "EXECUTION REQUIRED",
+        "evidence": []
+      }
+    }
+  },
+  "conditions": {
+    "O01": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O02": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O03": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O04": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O05": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O06": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O07": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    },
+    "O08": {
+      "decision": "UNDETERMINED",
+      "status": "EXECUTION REQUIRED",
+      "evidence": []
+    }
+  }
+}

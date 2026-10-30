@@ -1,0 +1,14 @@
+{
+  "checks": {
+    "identity_and_iam": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "tls_transport": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "encryption_at_rest": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "secret_management": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "network_exposure": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "audit_logging": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "object_lock_retention": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "image_vulnerabilities": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "licence_provenance": {"status": "EXECUTION REQUIRED", "evidence_paths": []},
+    "supply_chain_integrity": {"status": "EXECUTION REQUIRED", "evidence_paths": []}
+  }
+}

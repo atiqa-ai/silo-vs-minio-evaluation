@@ -1,0 +1,9 @@
+metric,minio_simulated,silo_simulated,preferred_direction,data_classification
+PUT throughput (MiB/s),185,172,Higher,illustrative / REFERENCE ONLY
+GET throughput (MiB/s),245,231,Higher,illustrative / REFERENCE ONLY
+Mixed operations (ops/s),1250,1170,Higher,illustrative / REFERENCE ONLY
+PUT p95 latency (ms),42,48,Lower,illustrative / REFERENCE ONLY
+GET p95 latency (ms),28,31,Lower,illustrative / REFERENCE ONLY
+CPU utilization (%),61,65,Lower,illustrative / REFERENCE ONLY
+Peak RAM (GiB),7.8,8.4,Lower,illustrative / REFERENCE ONLY
+Recovery time after node restart (s),75,94,Lower,illustrative / REFERENCE ONLY

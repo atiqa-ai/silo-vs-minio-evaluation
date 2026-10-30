@@ -1,0 +1,144 @@
+name: dev908-expansion
+services:
+  minio1:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minio1_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+    ports:
+    - 127.0.0.1:${EXPANSION_S3_PORT:-9600}:9000
+  minio2:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minio2_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minio3:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minio3_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minio4:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minio4_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minioexp1:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minioexp1_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minioexp2:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minioexp2_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minioexp3:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minioexp3_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+  minioexp4:
+    image: ${MINIO_IMAGE:?Set verified immutable image digest}
+    command: server http://minio{1...4}/data http://minioexp{1...4}/data --console-address
+      :9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER:?Set username}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD:?Set password}
+    volumes:
+    - minioexp4_data:/data
+    networks:
+    - dev908-expansion
+    restart: 'no'
+    mem_limit: 768m
+    cpus: '0.75'
+    security_opt:
+    - no-new-privileges:true
+volumes:
+  minio1_data: {}
+  minio2_data: {}
+  minio3_data: {}
+  minio4_data: {}
+  minioexp1_data: {}
+  minioexp2_data: {}
+  minioexp3_data: {}
+  minioexp4_data: {}
+networks:
+  dev908-expansion:
+    driver: bridge

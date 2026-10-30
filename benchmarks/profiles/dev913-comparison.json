@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "baseline_profile": "benchmarks/profiles/minio-local.json",
+  "engines": ["minio", "silo"],
+  "execution_order": ["minio", "silo"],
+  "required_repetitions": 3,
+  "require_same_profile": true,
+  "require_same_tool_version": true,
+  "require_same_hardware": true,
+  "require_image_digests": true,
+  "require_resource_evidence": true,
+  "notes": "One heavy stack at a time; no real results until Ubuntu execution."
+}

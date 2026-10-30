@@ -1,0 +1,84 @@
+{
+  "generated_at_utc": "2026-10-30T16:34:16.347657+00:00",
+  "acceptance_status": "REVIEW REQUIRED",
+  "gates": [
+    {
+      "gate": "host_inventory",
+      "status": "MISSING",
+      "evidence_file": "host_inventory.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "image_provenance",
+      "status": "MISSING",
+      "evidence_file": "image_provenance.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "minio_functional",
+      "status": "MISSING",
+      "evidence_file": "minio_functional.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "silo_functional",
+      "status": "MISSING",
+      "evidence_file": "silo_functional.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "integrity",
+      "status": "MISSING",
+      "evidence_file": "integrity.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "compatibility",
+      "status": "MISSING",
+      "evidence_file": "compatibility.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "warp_minio",
+      "status": "MISSING",
+      "evidence_file": "warp_minio.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "warp_silo",
+      "status": "MISSING",
+      "evidence_file": "warp_silo.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "fio",
+      "status": "MISSING",
+      "evidence_file": "fio.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "resilience",
+      "status": "MISSING",
+      "evidence_file": "resilience.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    },
+    {
+      "gate": "replication",
+      "status": "MISSING",
+      "evidence_file": "replication.json",
+      "sha256": "",
+      "notes": "No actual execution evidence supplied"
+    }
+  ],
+  "note": "Structural checks do not prove that logs are authentic or that 16 GiB Option B requirements were met. Manual and machine-environment verification required."
+}

@@ -1,0 +1,20 @@
+{
+  "minio": {
+    "image_digest": "",
+    "warp_version": "",
+    "client_version": "",
+    "hardware_id": "",
+    "disk_id": "",
+    "filesystem": "",
+    "resource_evidence": []
+  },
+  "silo": {
+    "image_digest": "",
+    "warp_version": "",
+    "client_version": "",
+    "hardware_id": "",
+    "disk_id": "",
+    "filesystem": "",
+    "resource_evidence": []
+  }
+}

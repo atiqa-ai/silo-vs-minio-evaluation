@@ -1,0 +1,12 @@
+task,scope,referenced_assets,assets_present
+DEV-905,"Lab, Compose, image provenance and TLS",5,5
+DEV-906,Dataset generation and integrity,6,6
+DEV-907,MinIO S3 functionality,6,6
+DEV-908,MinIO distributed resilience and healing,5,5
+DEV-909,Replication,5,5
+DEV-910,MinIO performance baseline,5,5
+DEV-911,Silo functional parity,5,5
+DEV-912,S3 compatibility and O01–O08,5,5
+DEV-913,Silo performance comparison,4,4
+DEV-914,Security and licensing,4,4
+DEV-915,"Final matrix, acceptance and recommendation",5,5
