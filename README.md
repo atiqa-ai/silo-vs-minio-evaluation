@@ -1,117 +1,136 @@
-# MinIO vs Silo — S3 Storage Evaluation
+MinIO vs Silo — S3 Storage Evaluation
+Epic DEV-904 | Option B profile | Technical comparison and repository guide
+Executive overview
+This repository organizes the MinIO and Silo object-storage comparison across deployment, Amazon S3 API behavior, dataset integrity, distributed architecture, replication, performance, resource utilization, security, and licensing. It includes Docker Compose definitions, Python utilities, automated tests, benchmark profiles, task-specific reports, and consolidated engineering documentation.
+Option B evaluation profile
+Requirement	Profile
+CPU	8 cores
+Physical memory	16 GiB
+Free SSD space	At least 100 GiB
+Dataset	5–10 GiB
+Benchmark repetitions	Three per system
+Comparison approach	Sequential, same host and workload profile
+Distributed configuration	Four nodes where applicable
 
-**Epic DEV-904 | Option B evaluation | General technical comparison and documentation index**
 
-## Executive overview
-This repository provides Docker Compose lab configurations, Python S3 test suites, dataset integrity tools, benchmark workflows, security checks and task-by-task engineering reports for evaluating MinIO and Silo under a controlled local Option B profile.
+Reference performance comparison
+The table presents the project’s supplied reference comparison dataset for metric interpretation and percentage calculations. These values describe a comparison scenario; they are not presented as measurements collected from the storage services.
+Metric	Unit	MinIO	Silo	Comparison
+PUT throughput	MiB/s	185	172	MinIO +7.56%
+GET throughput	MiB/s	245	231	MinIO +6.06%
+Mixed operations	ops/s	1,250	1,170	MinIO +6.84%
+PUT p95 latency	ms	42	48	MinIO 12.50% lower
+GET p95 latency	ms	28	31	MinIO 9.68% lower
+CPU utilization	%	61	65	MinIO 6.15% lower (relative)
+Peak memory	GiB	7.8	8.4	MinIO 7.14% lower (relative)
+Node recovery	s	75	94	MinIO 20.21% lower (relative)
 
-## Evaluation configuration
-| Requirement | Option B profile |
-|---|---|
-| CPU | 8 cores |
-| RAM | 16 GiB physical |
-| Disk | ≥100 GiB free SSD |
-| Dataset | 5–10 GiB generated data |
-| Benchmark repetitions | 3 per system |
-| Execution | Sequential, same host and profile |
-| Distributed testing | Four nodes where applicable |
 
-## Illustrative comparison profile
+Dataset: [Option B reference metrics](submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv) · [Performance interpretation](reports/PERFORMANCE-COMPARISON.md)
+Task-specific technical reports
+Task	Report
+DEV-905	[Lab and deployment configuration](docs/taskwise-evaluation/DEV-905.md)
+DEV-906	[Dataset generation and integrity](docs/taskwise-evaluation/DEV-906.md)
+DEV-907	[MinIO S3 functional assessment](docs/taskwise-evaluation/DEV-907.md)
+DEV-908	[Distributed MinIO and recovery](docs/taskwise-evaluation/DEV-908.md)
+DEV-909	[Replication assessment](docs/taskwise-evaluation/DEV-909.md)
+DEV-910	[MinIO benchmark evaluation](docs/taskwise-evaluation/DEV-910.md)
+DEV-911	[Silo S3 functional parity](docs/taskwise-evaluation/DEV-911.md)
+DEV-912	[S3 compatibility and edge cases](docs/taskwise-evaluation/DEV-912.md)
+DEV-913	[Controlled MinIO–Silo benchmark comparison](docs/taskwise-evaluation/DEV-913.md)
+DEV-914	[Security and license assessment](docs/taskwise-evaluation/DEV-914.md)
+DEV-915	[Final capability matrix and recommendation](docs/taskwise-evaluation/DEV-915.md)
 
-The following values are supplied reference figures for discussing comparative metrics and calculation methods. They should be interpreted as a documentation example, rather than as measurements from a deployed storage environment.
 
-## Comparative results
-| Metric | Unit | MinIO | Silo | MinIO vs Silo |
-|---|---|---:|---:|---:|
-| PUT throughput | MiB/s | 185 | 172 | +7.56% |
-| GET throughput | MiB/s | 245 | 231 | +6.06% |
-| Mixed operations | ops/s | 1250 | 1170 | +6.84% |
-| PUT p95 latency | ms | 42 | 48 | -12.50% |
-| GET p95 latency | ms | 28 | 31 | -9.68% |
-| CPU utilization | % | 61 | 65 | -6.15% |
-| Peak RAM | GiB | 7.8 | 8.4 | -7.14% |
-| Node recovery | s | 75 | 94 | -20.21% |
+Report directory: [Taskwise documentation index](docs/taskwise-evaluation/README.md)
+Consolidated evaluation reports
+Area	Document
+Executive evaluation and recommendation	[FINAL-EVALUATION-REPORT.md](reports/FINAL-EVALUATION-REPORT.md)
+MinIO implementation and S3 workflows	[MINIO-EXECUTION-REPORT.md](reports/MINIO-EXECUTION-REPORT.md)
+Silo implementation and S3 workflows	[SILO-EXECUTION-REPORT.md](reports/SILO-EXECUTION-REPORT.md)
+S3 compatibility matrix	[S3-COMPATIBILITY-MATRIX.md](reports/S3-COMPATIBILITY-MATRIX.md)
+Dataset integrity and checksums	[DATA-INTEGRITY-REPORT.md](reports/DATA-INTEGRITY-REPORT.md)
+Distributed architecture and replication	[DISTRIBUTED-REPLICATION-REPORT.md](reports/DISTRIBUTED-REPLICATION-REPORT.md)
+Performance comparison	[PERFORMANCE-COMPARISON.md](reports/PERFORMANCE-COMPARISON.md)
+Security and licensing	[SECURITY-LICENSING-REVIEW.md](reports/SECURITY-LICENSING-REVIEW.md)
+CPU, memory and recovery	[RESOURCE-UTILIZATION-REPORT.md](reports/RESOURCE-UTILIZATION-REPORT.md)
+Option B requirements and readiness	[OPTION-B-GAP-ANALYSIS.md](reports/OPTION-B-GAP-ANALYSIS.md)
+DEV-904 task mapping	[DEV-904-ACCEPTANCE-MATRIX.md](reports/DEV-904-ACCEPTANCE-MATRIX.md)
+Project records index	[EVIDENCE-INDEX.md](reports/EVIDENCE-INDEX.md)
+Risks and recommendation	[RISKS-AND-RECOMMENDATION.md](reports/RISKS-AND-RECOMMENDATION.md)
 
-**Data origin:** The eight values are from `submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv` (three-run scenario); they are reference figures rather than raw Warp/fio execution measurements. The table is included for presentation and calculation validation, referencetime sign-off.
 
-## Task-specific technical reports
-- [DEV-905 — Lab and deployment configuration](docs/taskwise-evaluation/DEV-905.md)
-- [DEV-906 — Dataset generation and integrity](docs/taskwise-evaluation/DEV-906.md)
-- [DEV-907 — MinIO S3 functional assessment](docs/taskwise-evaluation/DEV-907.md)
-- [DEV-908 — Distributed MinIO and recovery](docs/taskwise-evaluation/DEV-908.md)
-- [DEV-909 — Replication assessment](docs/taskwise-evaluation/DEV-909.md)
-- [DEV-910 — MinIO benchmark evaluation](docs/taskwise-evaluation/DEV-910.md)
-- [DEV-911 — Silo S3 functional parity](docs/taskwise-evaluation/DEV-911.md)
-- [DEV-912 — S3 compatibility and edge cases](docs/taskwise-evaluation/DEV-912.md)
-- [DEV-913 — Controlled MinIO–Silo benchmark comparison](docs/taskwise-evaluation/DEV-913.md)
-- [DEV-914 — Security and license assessment](docs/taskwise-evaluation/DEV-914.md)
-- [DEV-915 — Final acceptance and recommendation](docs/taskwise-evaluation/DEV-915.md)
-
-## Consolidated evaluation reports
-- [Evaluation scope, acceptance and recommendation](reports/FINAL-EVALUATION-REPORT.md)
-- [MinIO implementation and S3 execution](reports/MINIO-EXECUTION-REPORT.md)
-- [Silo implementation and S3 execution](reports/SILO-EXECUTION-REPORT.md)
-- [API compatibility and O01–O08 case matrix](reports/S3-COMPATIBILITY-MATRIX.md)
-- [Dataset generation and checksums](reports/DATA-INTEGRITY-REPORT.md)
-- [Distributed healing and replication](reports/DISTRIBUTED-REPLICATION-REPORT.md)
-- [Option B performance comparison](reports/PERFORMANCE-COMPARISON.md)
-- [Security controls and license provenance](reports/SECURITY-LICENSING-REVIEW.md)
-- [CPU, RAM and recovery profile](reports/RESOURCE-UTILIZATION-REPORT.md)
-- [Option B execution prerequisites](reports/OPTION-B-GAP-ANALYSIS.md)
-- [Epic acceptance mapping](reports/DEV-904-ACCEPTANCE-MATRIX.md)
-- [Evidence inventory and provenance](reports/EVIDENCE-INDEX.md)
-- [Engineering risks and recommendation](reports/RISKS-AND-RECOMMENDATION.md)
-
-## Documentation cross-verification
-
-## Verification sources
-- [Recorded offline pytest log](submission/evidence/offline_pytest_2026-10-30.log): 85 passed.
-- [Option B scenario CSV](submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv): source for the comparison table.
-- [Ubuntu setup](UBUNTU-START-HERE.md) and [execution gates](EXECUTION-GATES.md).
-
-## Reproduce offline tests
-```bash
+Report directory: [Consolidated reports index](reports/README.md)
+Setup, operations and governance
+- [Ubuntu setup guide](UBUNTU-START-HERE.md)
+- [Execution workflow and acceptance criteria](EXECUTION-GATES.md)
+- [Repository organization](REPOSITORY-CLEANUP.md)
+- [Lab versions and deployment](docs/01-repo-versions-and-lab/README.md)
+- [Final acceptance criteria](docs/11-evaluation-report/FINAL-ACCEPTANCE.md)
+- [Option B acceptance profile](docs/governance/OPTION-B-ACCEPTANCE.md)
+- [O01–O08 compatibility cases](docs/governance/O01-O08.md)
+- [Offline test summary](submission/reports/OFFLINE-TEST-EXECUTION-REPORT.md)
+- [Recorded pytest output](submission/evidence/offline_pytest_2026-10-30.log)
+Source code and test navigation
+The following links open key files directly in GitHub. Each folder contains additional utilities for its corresponding workflow.
+Docker Compose configurations
+[compose.yaml](compose/minio/single/compose.yaml) · [compose.yaml](compose/minio/distributed/compose.yaml) · [compose.yaml](compose/minio/replication/compose.yaml) · [compose.yaml](compose/silo/distributed/compose.yaml) · [compose.yaml](compose/monitoring/compose.yaml)
+Lab and image management
+[ubuntu-preflight-strict.sh](scripts/lab/ubuntu-preflight-strict.sh) · [ubuntu-compose-validate.sh](scripts/lab/ubuntu-compose-validate.sh) · [resolve-images.sh](scripts/lab/resolve-images.sh) · [compose-control.sh](scripts/lab/compose-control.sh)
+Dataset and integrity
+[generate.py](scripts/dataset/generate.py) · [plan_profile_b.py](scripts/dataset/plan_profile_b.py) · [seed.py](scripts/dataset/seed.py) · [manifest.py](scripts/verification/manifest.py) · [compare.py](scripts/verification/compare.py)
+S3 functional and compatibility testing
+[minio_baseline.py](scripts/testing/minio_baseline.py) · [advanced_s3.py](scripts/testing/advanced_s3.py) · [silo_functional.py](scripts/testing/silo_functional.py) · [s3_compatibility.py](scripts/testing/s3_compatibility.py) · [dev912_extended.py](scripts/testing/dev912_extended.py)
+Distributed, replication and recovery
+[distributed_minio.py](scripts/testing/distributed_minio.py) · [replication-workflow.py](scripts/lab/replication-workflow.py) · [batch-replication.py](scripts/lab/batch-replication.py) · [replication_audit.py](scripts/testing/replication_audit.py)
+Benchmarking and resource capture
+[warp_preflight.py](scripts/benchmark/warp_preflight.py) · [warp_metrics.py](scripts/benchmark/warp_metrics.py) · [report.py](scripts/benchmark/report.py) · [dev913.py](scripts/benchmark/dev913.py) · [dev913_orchestrate.py](scripts/benchmark/dev913_orchestrate.py)
+Security and final evaluation
+[dev914.py](scripts/security/dev914.py) · [dev915_final.py](scripts/testing/dev915_final.py) · [evidence_report.py](scripts/verification/evidence_report.py)
+Automated test suites
+- [test_dev913.py](tests/benchmark/test_dev913.py)
+- [test_dev913_orchestrate.py](tests/benchmark/test_dev913_orchestrate.py)
+- [test_dev916_regressions.py](tests/benchmark/test_dev916_regressions.py)
+- [test_phase11.py](tests/benchmark/test_phase11.py)
+- [test_warp_metrics_report.py](tests/benchmark/test_warp_metrics_report.py)
+- [test_dev911_advanced.py](tests/compatibility/test_dev911_advanced.py)
+- [test_dev912.py](tests/compatibility/test_dev912.py)
+- [test_dev912_extended.py](tests/compatibility/test_dev912_extended.py)
+- [test_silo_functional.py](tests/compatibility/test_silo_functional.py)
+- [test_dataset_toolkit.py](tests/data-management/test_dataset_toolkit.py)
+- [test_logical_compare.py](tests/data-management/test_logical_compare.py)
+- [test_retention_lifecycle.py](tests/data-management/test_retention_lifecycle.py)
+- [test_minio_distributed.py](tests/distributed/test_minio_distributed.py)
+- [test_dev915.py](tests/final/test_dev915.py)
+- [test_replication_audit.py](tests/replication/test_replication_audit.py)
+- [test_workflows.py](tests/replication/test_workflows.py)
+- [test_advanced_s3.py](tests/s3-core/test_advanced_s3.py)
+- [test_minio_baseline.py](tests/s3-core/test_minio_baseline.py)
+- [test_preflight.py](tests/s3-core/test_preflight.py)
+- [test_dev914.py](tests/security/test_dev914.py)
+- [test_seed_integrity.py](tests/verification/test_seed_integrity.py)
+Benchmark and project data
+- [dev913-comparison.json](benchmarks/profiles/dev913-comparison.json)
+- [dev913-metadata.example.json](benchmarks/profiles/dev913-metadata.example.json)
+- [dev914-evidence.example.json](benchmarks/profiles/dev914-evidence.example.json)
+- [minio-local.json](benchmarks/profiles/minio-local.json)
+- [TASK_ACCEPTANCE_MATRIX.csv](submission/documentation/TASK_ACCEPTANCE_MATRIX.csv)
+- [OPTION_B_ILLUSTRATIVE_METRICS.csv](submission/documentation/OPTION_B_ILLUSTRATIVE_METRICS.csv)
+- [option_b_modeled_summary.csv](benchmarks/analysis/option_b_modeled_summary.csv)
+Run the Python test suite
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install pytest
 python -m pytest -q
-```
-
-## Project layout
-- `compose/`: storage and monitoring deployments
-- `scripts/`: test, verification, benchmarking and security utilities
-- `tests/`: offline automated tests
-- `benchmarks/`: profiles and analysis
-- `docs/taskwise-evaluation/`: DEV-905 through DEV-915 reports
-- `reports/`: consolidated technical reports
-- `submission/`: supporting project records
-
-
-## Repository navigation and evidence
-
-- [Ubuntu setup](UBUNTU-START-HERE.md) · [Execution and acceptance gates](EXECUTION-GATES.md)
-- [Task reports DEV-905–DEV-915](docs/taskwise-evaluation/README.md)
-- [Consolidated reports](reports/README.md)
-- [Offline test execution report](submission/reports/OFFLINE-TEST-EXECUTION-REPORT.md)
-- [Repository cleanup record](REPOSITORY-CLEANUP.md)
-
-**Results provenance:** Performance values in the comparison table are scenario/reference values, REFERENCE ONLY Warp/fio measurements. Runtime acceptance depends on preserved raw test evidence.
-
-## DEV-905–DEV-915 — General Technical Comparison Reports
-
-The following reports provide technical comparisons, architecture considerations, common behavior and reference workload analysis for the Option B evaluation. The numerical performance comparison is an illustrative reference dataset rather than a live benchmark measurement.
-
-| Task | Technical report |
-|---|---|
-| DEV-905 | [DEV-905 — Deployment, Compose, and TLS](docs/taskwise-evaluation/DEV-905.md) |
-| DEV-906 | [DEV-906 — Dataset Generation and Object Integrity](docs/taskwise-evaluation/DEV-906.md) |
-| DEV-907 | [DEV-907 — MinIO S3 Functional Baseline](docs/taskwise-evaluation/DEV-907.md) |
-| DEV-908 | [DEV-908 — Distributed Storage, Healing, and Recovery](docs/taskwise-evaluation/DEV-908.md) |
-| DEV-909 | [DEV-909 — Replication and Consistency](docs/taskwise-evaluation/DEV-909.md) |
-| DEV-910 | [DEV-910 — MinIO Throughput, Latency, and Resource Efficiency](docs/taskwise-evaluation/DEV-910.md) |
-| DEV-911 | [DEV-911 — Silo S3 Functional Parity](docs/taskwise-evaluation/DEV-911.md) |
-| DEV-912 | [DEV-912 — S3 API Compatibility and Edge Cases](docs/taskwise-evaluation/DEV-912.md) |
-| DEV-913 | [DEV-913 — Option B Performance Comparison](docs/taskwise-evaluation/DEV-913.md) |
-| DEV-914 | [DEV-914 — Security, Licensing, and Supply Chain](docs/taskwise-evaluation/DEV-914.md) |
-| DEV-915 | [DEV-915 — Final Capability Matrix and Recommendation](docs/taskwise-evaluation/DEV-915.md) |
-
+For service-specific configuration, prerequisites and commands, follow the linked task reports and Ubuntu setup guide. The included historical pytest log reports 85 passing tests for the aggregate Python test suite; this is distinct from storage-service benchmark results.
+Repository structure
+compose/                    Storage and monitoring Compose files
+scripts/                    Dataset, S3, replication, benchmark and security tools
+tests/                      Python automated tests
+benchmarks/                 Workload profiles and comparison inputs
+docs/taskwise-evaluation/   DEV-905 through DEV-915 reports
+docs/governance/            Evaluation requirements and compatibility cases
+reports/                    Consolidated technical reports
+submission/                 Supporting project records and documentation
+GitHub link guidance
+All links in this README are relative to the repository root. Place this file at the root as README.md and preserve the referenced folders and filenames when committing the project to the main branch.
